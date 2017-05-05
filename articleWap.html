@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>飞地 | 诗歌 文学 艺术 生活 飞地书局 </title>
+    <meta name="keywords" content="飞地，飞地传媒，品牌服务，品牌全案，设计，VIS，CIS，VI设计,飞地书局,飞地之声,飞地丛刊">
+    <meta name="description" content="飞地传媒是中国最具情怀的品牌全案服务商，独创“尖叫爆品”营销策划全案模式，从战略、品牌、产品、推广到资本，一站式全程诊断与解决企业发展的核心问题。为企业级客户提供企业整体发展战略、企业CI识别系统规范、企业品牌年度营销推广等服务。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main_wap.css">
+    <link rel="stylesheet" href="css/query_wap.css">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script>
+function changeImgWH(obj) {
+    var scale = 0.75;
+    var screenW = document.documentElement.clientWidth;
+    var screenH = screenW * scale;
+    var parNode = obj.parentNode;
+    parNode.style.width  = screenW + "px";
+    parNode.style.height  = screenH + "px";
+    parNode.style.overflow  = "hidden";
+    var image = new Image();
+    image.src =  obj.src; //获取图像路径
+    var imgW = image.width; //获取图像宽度
+    var imgH = image.height; //获取图像高度
+  
+   if(imgW/imgH <=scale){
+        //缩小宽
+        var s1 = screenW/imgW;
+        newWidth = screenW;
+        newHeight = imgH*s1;
+    }else{
+        //缩小高
+         var s2 =  screenH/imgH;
+        newHeight = screenH;
+        newWidth = imgW*s2;
+    }
+    obj.height = newHeight;
+    obj.width = newWidth;
+};
+
+</script>
+</head>
+<body>
+<!-- <div id="top"></div> -->
+<div id="iosMask" class="iosMask" style="display:none">
+    <div class="iosTip">
+       点击右上角选择“在Safari中打开”
+    </div>
+</div>
+<div id="mask" class="qrCodeMask" style="display:none">
+        <div id="QR_Code" class="qrCode">
+            <img src="img/weixin.jpg" alt="">
+            <div class="text">Android版即将上线长按二维码或搜索<span>飞地</span>关注公众号</div>
+        </div>
+        <img style="height: 100%;width: 100%;opacity: 0" src="img/weixin.jpg">
+    </div>
+<header class="shareHead">
+        <div class="logoCon">
+        <img src="img/icon@3x.png" alt="">
+        <div class="leftTitle">
+        <h2>飞地</h2>
+        <p>诗歌朝向未来</p>
+        </div>
+        </div>
+        <div class="download" id="downApp">
+            <a href="https://www.baidu.com/" class="ios" id="ios">iOS</a>
+            <a href="javascript:void(0)" id="android" class="android" >Android</a>
+        </div>
+    </header>
+    <article class="shareArt">
+        <!-- //图片 -->
+        <!-- <div class="box" id="box">
+            <img src="img/test.png" alt="" onload = "changeImgWH(this)">
+        </div> -->
+
+       <!-- //视频 -->
+        <!-- <div class="box" id="box">
+            <video controls poster="{{url($article->art_thumb)}}" >
+                <source src="{{url($article->art_media)}}" type="application/x-mpegurl">
+            </video> 
+        </div>  -->
+    
+       <!-- //声音 -->
+        <div class="box" id="box">
+                <img src="img/test.png" alt="" onload = "changeImgWH(this)" id = "changeImg">
+                <div class="play bg2" id ="play"></div>
+                <audio id="mp3_audio">
+                    <source src="img/ttxx.mp3" type="audio/mp3">
+                </audio>
+        </div>
+     
+        <div class="padding" id="articleCon">
+            <div class="header">
+                <h1>托马斯 · 伯恩哈德：人爱动物，因为他们甚至没有能力爱自己</h1>
+                <div class="author">胡桑·
+                    <time>两个月前</time>
+                </div>
+            </div>
+            
+             <h4>张枣，1962-2010，湖南长沙人，诗人。湖南师范大学英语系本科毕业，考入四川外语学院念硕士。1986年出国，常年旅居德国，曾获得德国图宾根大学文哲博士，后在图宾根大学任教，归国后曾任教于河南大学文学院、中央民族大学文学与新闻传播学院。出版诗集有《春秋来信》等。2010年3月8日凌晨4时39分因肺癌在德国图宾根大学医院去世，享年48岁。</h4>
+
+            <p>“想到死亡一切都是可笑的，”伯恩哈德确曾与死神打过交道。1931年，怀有身孕的未婚母亲专门到荷兰生下他，然后为了不耽误打工挣钱，把新生儿交给陌生人照料。伯恩哈德上学进的是德国纳粹时代的学校，甚至被关进特所。1945年后在萨尔茨堡天主教学校，与纳粹教育方式如出一</p>
+            <p>美利坚合众国，简称为美国，是由50个州和华盛顿哥伦比亚特区组成的联邦共和立宪制国家。</p>
+            <h1>联邦权力机构</h1>
+            <h2>联邦权力机构</h2>
+            <h3>联邦权力机构</h3>
+            <p>联邦权力机构本身有三个分支，且互相监督和制衡：</p>
+            <ul>
+                <li>国会</li>
+                <li>总统</li>
+                <li>最高法院</li>
+            </ul>
+            <img src="img/test.png" alt="">
+            <h3>城市</h3>
+            <p>美国建国前的英国殖民地时期，没有宗教自由，当时存在非常严酷的宗教法令，对不信仰基督新教的人进行歧视、迫害，而且基督宗教各派别控制的地区对其它派别的教徒也实行歧视政策[1]。</p>
+            <h3>城市</h3>
+            <p class="img"><img src="img/test.png" alt=""></p>
+            <small>图片说明</small>
+            <ol>
+                <li>纽约</li>
+                <li>洛杉矶</li>
+            </ol>
+            <hr>
+            <h3>部分意见</h3>
+            <blockquote>毫无疑问的，苏联的垮台使美国成为世界上最强大的国家。
+            <p>毫无疑问的，苏联的垮台使美国成为世界上最强大的国家。</p></blockquote>
+            <h3>宗教</h3>
+            <p>美国建国前的英国殖民地时期，没有宗教自由，当时存在非常严酷的宗教法令，对不信仰基督新教的人进行歧视、迫害，而且基督宗教各派别控制的地区对其它派别的教徒也实行歧视政策[1]。</p>
+            <p>美国建国前的英国殖民地时期，没有宗教自由，当时存在非常严酷的宗教法令，对不信仰基督新教的人进行歧视、迫害，而且基督宗教各派别控制的地区对其它派别的教徒也实行歧视政策[1]。</p>
+            <p>测试后的P测试后的P测试后的P测试后的P测试后的P测试后的P测试后的P测试后的P测试后的P</p>
+            <br>
+            <span>想独上高楼读一遍《罗马衰亡史》，忽有罗马灭亡星出现在报上。</span>
+            <span>报纸落。地图开，因想起远人的嘱咐。</span>
+            <span>寄来的风景也暮色苍茫了。</span>
+            <span>灰色的天。灰色的海。灰色的路。</span>
+            <span>哪儿了？我又不会向灯下验一把土。</span>
+            <span>忽听得一千重门外有自己的名字。</span>
+           <footer>
+                <hr>
+                <ol>
+                    <li> “岛屿”以超过500平方米面积为标准</li>
+                    <li> 脚注</li>
+                </ol>
+            </footer>
+        </div>
+    </article>
+    <footer class="shareFoot"><a href="https://www.baidu.com/" id="footDownApp">下载App查看更多</a></footer>
+     
+    <script src="js/main.js"></script>
+    
+</body>
+</html>

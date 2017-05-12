@@ -8,13 +8,18 @@
 body{font-size: 14px;min-width:620px; }
 
 /* 标题和下载图标居中时 */
-.head{color: #fff;position: relative;background: rgba(0,0,0,0.20) url('../img/bg.jpg') center center no-repeat;background-size: cover;height: 960px;}
-.head .title_down,.head .logo,.head .phoneVedio{position: absolute;}
-.head .logo{top:93px; left:50%;margin-left:-52px }
-.head .title_down{ left: 365px;    top: 300px;height:244px;max-width: 725px;}
-.head .title_down h1{ font-size: 60px;letter-spacing: -0.07px;
-    color: #FFFFFF;font-family: NotoSansCJKsc-Regular;line-height: 84px;}
-.head .title_down p{font-size: 24px;color: #FFFFFF; width: 726px;line-height: 34px;   margin-top: 30px;letter-spacing: -0.03px;font-family: NotoSansCJKsc-DemiLight;}
+.head{color: #fff;background: rgba(0,0,0,0.20) url('../img/bg.jpg') center center no-repeat;background-size: cover;height: 960px;}
+/* .head .title_down, ,.head .phoneVedio*/
+.head .logo{position: absolute;top:93px; left:50%;margin-left:-52px }
+.titleWrap{margin: 0 auto;padding-top: 176px; padding-right: 5%;padding-left: 5%; display: flex;justify-content: space-around; }
+.title_down{ flex: 1; margin-top: 140px;padding-right:20px;  height:244px; color: #FFFFFF;}
+.title_down h1{ font-size: 60px;letter-spacing: -0.07px;font-family: NotoSansCJKsc-Regular;line-height: 84px;}
+.title_down p{font-size: 24px;line-height: 34px;  max-width: 726px; margin-top: 30px;letter-spacing: -0.03px;font-family: NotoSansCJKsc-DemiLight;}
+.phoneVedio{position: relative; width: 336px;height: 681px;background: transparent  url('../img/front.png') center center no-repeat;background-size: cover}
+.imgcls{height: 557px;left: 11px;opacity: 0;position: absolute;top: 62px;visibility: hidden;width: 313px;  }
+.before,.active{opacity: 1;visibility: visible;}
+.active{-webkit-transition: opacity 1.5s ease-in;    transition: opacity 1.5s ease-in;  z-index: 2;}
+
 .appDown{display: flex;justify-content: space-between; max-width: 367px;margin-top: 35px; height: auto; }
 .appDown li{position: relative; width: 170px;height: 55px;line-height: 50px;text-align: center; background: #FFFFFF;border: 2px solid #FFFFFF;border-radius: 4px; [;float: left;margin-right: 37px;]}
 .appDown li:last-child{[;margin-right:0;]}
@@ -27,11 +32,6 @@ width: 174px;height: 174px; transform-origin: top center;-webkit-transform-origi
 transform: scale(0, 0);-webkit-transform: scale(0, 0);transition: all 0.5s;-webkit-transition: all 0.5s;opacity: 0;}
 .appDown li.downAndroid:hover:after,
 .appDown li.downIos:hover:after{transform: scale(1, 1);-webkit-transform: scale(1, 1);opacity: 1;}
-
-/* .carousel{width: 1440px; margin: 0 auto}
-.carousel img{ width: 1440px;    height: 960px;} */
-.phoneVedio{width: 417px;height: 826px; top: 176px;right: 100px;z-index: 9999;background: transparent  url('../img/front.png') center center no-repeat;background-size: cover
-}
 
 /* content css */
 .content{width: 940px;  margin:0 auto; }
@@ -63,10 +63,11 @@ transform: scale(0, 0);-webkit-transform: scale(0, 0);transition: all 0.5s;-webk
     transform: scale(1, 1);
     -webkit-transform: scale(1, 1);
     opacity: 1;}
-.loadingBg{    min-height: 400px;background: #fff url('../img/loading.gif') center center no-repeat;}
+.loadingBg{ min-height: 400px;background: #fff url('../img/loading.gif') center center no-repeat;}
 .artList{}
 .artList ul{ display: flex; justify-content:space-between;flex-wrap:wrap;height: auto;
 /* overflow: hidden; */[;margin-right: -20px;]/* display: -webkit-box; -webkit-box-pack:justify; */ }
+.artList ul > a{display: inline-block;min-height: 355px;}
 .artList li{display: flex;flex-direction: column; 
     width: 300px; margin-top: 40px;
  [;float: left; margin-right: 20px;min-height: 355px; overflow: hidden] }
@@ -123,7 +124,7 @@ font-family: PingFangSC-Regular;font-size: 14px;text-align: center;border: 1px s
 .article_detail .author img{ border-radius:50%; width: 40px; height: 40px; flex:0 0 40px;}
 .article_detail .author span{ padding:0 0 0 11px;font-size: 15px;color: #404146;line-height: 20px;align-self:center;display: inline-block;[;line-height: 40px;]}
 /* 包图片的P */
-.article_detail p.img{margin-left: 0;margin-right: 0;text-align: center}
+.article_detail p.img{margin-left: 0;margin-right: 0;text-align: center;overflow: hidden;}
 
 /* 图注说明 */
 .article_detail h6,
@@ -132,7 +133,7 @@ font-family: PingFangSC-Regular;font-size: 14px;text-align: center;border: 1px s
 .article_detail p.small{display:block;text-align: center;font-size: 12px;    font-weight: normal;color: rgba(0,0,0,0.50);line-height: 1.5;margin:4px auto;}
 /* 诗歌 */
 .article_detail>section:first-child{margin-top: 2rem;}
-.article_detail p.poetry {margin-top: 2rem;font-size: 16px;line-height: 28px;color: rgba(0,0,0,0.9);}
+.article_detail p.poetry {margin-top: 2rem;font-size: 16px;line-height: 28px;color: rgba(0,0,0,0.9);overflow: hidden;}
 .article_detail section{font-size: 16px;line-height: 28px;color: rgba(0,0,0,0.9);}
 .article_detail section + p.emptyPara + section{margin-top: -30px;}
 .article_detail p + section{margin-top: 20px;}
@@ -144,8 +145,6 @@ font-family: PingFangSC-Regular;font-size: 14px;text-align: center;border: 1px s
 
 .readOther{ display: flex; justify-content: space-between  }
 .readOther span{ display: inline-block;[;float: left;]}
-/* .readOther span.left{}
-.readOther span:last-child{text-align: right;[;float: right;]} */
 .readOther span.reads{    padding: 3px 0 0 0;font-family: PingFangSC-Regular;font-size: 11px;color: #8B8687;letter-spacing: 0.07px;line-height: 13px;}
 .readOther span.reads i{display: inline-block;height: 14px;width: 22px;margin-right: 5px;background: url('../img/visibility.png') left center; background-size: cover;}
 .downBtnPic{border: 1px solid #E3DEDE;border-radius:4px;padding: 8px 21px; width: 130px; margin:40px auto 35px auto;}
@@ -166,20 +165,21 @@ display: flex;  align-items: flex-end;flex: 1;}
 .recommend ul li .summary div span{display: inline-block;margin-right: 12px; }
 
 
-
-
-
 .menu{font-family: PingFangSC-Medium;font-size: 16px; display: flex;justify-content:space-around;line-height: 50px;height: 50px; }
 .menu a{color: #8B8687;}
 .menu a.curr{color: #404146;}
 
-.aboutUs{padding-bottom: 50px;}
+#map{height: 500px;margin: 20px 0 0 0; }
+.aboutUs{padding-bottom: 50px;min-height: 450px;}
 .menu_con{display: none}
 .menu_con h3{font-family: PingFangSC-Regular;font-size: 18px;padding: 20px 0 ;line-height: 20px;color: #404146;}
 .menu_con p{font-family: PingFangSC-Regular;font-size: 16px;color: #8B8687;line-height: 24px;}
-.menu_con a{color: #404146;}
+.menu_con a{font-family: PingFangSC-Regular;
+font-size: 16px;
+color: #3F72AF;
+line-height: 24px;padding: 10px 0;}
 
-@media screen and (max-width:880px) { 
+/* @media screen and (max-width:880px) { 
     .head h2{ display: none;}
     .head h1{  font-size: 50px;}
     .head .title_down{height: 165px; }
@@ -192,4 +192,16 @@ display: flex;  align-items: flex-end;flex: 1;}
     .copyRight{ text-align:center;}
     .footTop>div.introduce{ [;width: 100%;] }
     .contact span.address{[;clear: left;]}
+} 
+
+ */
+
+@media screen and (max-width:800px) { 
+    .phoneVedio{display:none;}
+    .content{width: 640px;  margin:0 auto; }
+    .artList li:last-child{display: none}
+} 
+@media screen and (min-width:1440px) { 
+    .titleWrap{padding-right: 15%;padding-left: 15%;} 
+    
 } 

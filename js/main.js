@@ -9,6 +9,7 @@ $(function() {
         details = $('.article_detail'),
         art_head = $('.article_head'),
         menu_tab = $('.menu_con'),
+        tab = $('.menu > a'),
         mWeChat = $('#m_weChat'),
         mask = $('#mask'),
         arrow = $(".arrow");
@@ -104,7 +105,7 @@ $(function() {
             case details: //文章详情的Dom
                 var str = '<img src="' + data.art_thumb + '" alt=""><h1>' + data.art_title + '</h1>' +
                     '<div class="author">' +
-                    '<img src="' + data.editor_avatar + '" alt=""><span>' + data.art_editor + ' · ' + data.art_time + '</span>' +
+                    '<img src="' + data.editor_avatar + '" alt=""><span>' + data.art_editor + ' · ' + format(data.art_time*1000) + '</span>' +
                     '</div>' + data.art_content.replace(/\/ueditor\/php/g,(url.homepage+"/ueditor/php")) +
                     '<div class="readOther">' +
                     '<span class="left mark">' + data.cate_name + '</span>' +
@@ -154,7 +155,7 @@ $(function() {
             case mDetails: //移动端文章详情
                 var str = '<img src="' + data.art_thumb + '" alt=""><h1>' + data.art_title + '</h1>' +
                     '<div class="author">' +
-                    '<span>' + data.art_editor + ' · ' + data.art_time + '</span>' +
+                    '<span>' + data.art_editor + ' · ' + format(data.art_time*1000) + '</span>' +
                     '</div>' + data.art_content.replace(/\/ueditor\/php/g,(url.homepage+"/ueditor/php")) +
                     '<div class="readOther">' +
                     '<span class="left mark">' + data.cate_name + '</span>' +
@@ -257,7 +258,6 @@ $(function() {
      * @return {[type]} [description]
      */
     function tabChange() {
-        var tab = $('.menu > a');
         var index = 0;
         if (tab.length != menu_tab.length) {
             return;
@@ -368,8 +368,23 @@ $(function() {
         hideMask()
     });
 
+    //补0；
+    function add0(m) {
+        return m < 10 ? '0' + m : m 
+    }
 
-
+    //格式化：如2017-05-11 13:56:13
+    function format(seconds) {
+        //seconds是整数，否则要parseInt转换
+        var time = new Date(seconds);
+        var y = time.getFullYear();
+        var m = time.getMonth() + 1;
+        var d = time.getDate();
+        var h = time.getHours();
+        var mm = time.getMinutes();
+        var s = time.getSeconds();
+        return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
+    }
 
     //封装移动端Touch事件
     function tapEvt(dom, callBack) {
@@ -394,5 +409,7 @@ $(function() {
             callBack(event);
         });
     }
+
+    
 
 });

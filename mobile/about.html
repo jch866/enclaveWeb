@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/main_wap.css">
     <link rel="stylesheet" href="../css/query_wap.css">
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=9cd78b288110634bcf06f88067e59fda"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script>
     function changeImgWH(obj) {
@@ -123,6 +127,29 @@
         </div>
     </div>
     <script src="../js/main.js"></script>
+    <script>
+    // --联系我们中的地图start---
+    var marker, map = new AMap.Map("map", {
+            resizeEnable: true,
+            center: [114.097371, 22.562729],
+            zoom: 16
+     });
+        // 实例化点标记
+    addMarker();
+    function addMarker() {
+        if (marker) {
+            return;
+        }
+        marker = new AMap.Marker({
+            icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png",
+            position: [114.097371, 22.562729]
+        });
+        marker.setMap(map);
+    }
+ 
+
+    // --联系我们中的地图end---
+    </script>
 </body>
 
 </html>

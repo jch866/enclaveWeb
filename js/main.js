@@ -357,9 +357,7 @@ $(function() {
         }
     function hideMask() {
             mask.fadeOut(100);
-            doc.off("touchmove", function(e){
-                e.preventDefault();
-            });
+            doc.off("touchmove");
     }
     mWeChat.on('click',function(){
         showMask();

@@ -15,6 +15,7 @@ $(function() {
         arrow = $(".arrow");
     var delay = 60 * 60 * 3 * 1000; //3小时缓存机制
     var cache = { aL: 'artList', aLT: 'artList_time' };
+    var len1=6,len2=3;
     var util = {
         //[util.supports_ls 判断是否支持localstorage]
         supports_ls: function() {
@@ -92,9 +93,9 @@ $(function() {
                 artListUl.html('');
                 $.each(data, function(index, item) {
                     var str = '<li>' +
-                        '<a href="article.html?art_id=' + item.art_id + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
-                        '<a href="article.html?art_id=' + item.art_id + '" ><h3>' + item.art_title + '</h3></a>' +
-                        '<a href="article.html?art_id=' + item.art_id + '" ><p class="des">' + item.art_description + '</p></a>' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><h3>' + item.art_title + '</h3></a>' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><p class="des">' + item.art_description + '</p></a>' +
                         '<div class="editor">' +
                         '<p><span class="mark">' + item.cate_name + '</span>' + item.art_editor + '</p>' +
                         '</div>' +
@@ -117,7 +118,7 @@ $(function() {
                 recommendUl.html('');
                 $.each(data, function(index, item) {
                     var str = '<li>' +
-                        '<a href="article.html?art_id=' + item.art_id + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
                         '<div class="summary">' +
                         '<h2>' + item.art_title + '</h2>' +
                         '<p>' + item.art_description + '</p>' +
@@ -131,7 +132,7 @@ $(function() {
                 mRecommendUl.html('');
                 $.each(data, function(index, item) {
                     var str = '<li>' +
-                        '<a href="article.html?art_id=' + item.art_id + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
                         '<div>' +
                         '<h2>' + item.art_title + '</h2>' +
                         '<p>' + item.art_description + '</p>' +
@@ -143,7 +144,7 @@ $(function() {
                 mArtList.html('');
                 $.each(data, function(index, item) {
                     var str = '<li>' +
-                        '<a href="article.html?art_id=' + item.art_id + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
                         '<div>' +
                         '<h3>' + item.art_title + '</h3>' +
                         '<p>' + item.art_description + '</p>' +
@@ -211,8 +212,11 @@ $(function() {
      * @return {[type]} [description]
      */
     function getArticleCon(isPc) {
-        var localId = location.search.substring(1); //"art_id=270"
-        $.get(url.ad + localId, function(data) {
+        //var localId = location.search.substring(1); //"art_id=270"
+        var searchStr = location.search.split('=')[1];
+        var s = searchStr.substring(len1);
+        var localId = s.substring(0,s.length-len2);
+        $.get(url.ad +'art_id=' + localId, function(data) {
                 //console.log(data.message);
                 if (data.code == 200) {
                     //console.log(data.result);
@@ -407,7 +411,27 @@ $(function() {
             callBack(event);
         });
     }
-
     
+    function randStr(){
+        var s= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var len = s.length;
+        var arr1=[],arr2=[];
+        var newS = {};
+        for(var i=0;i<len1;i++){
+            arr1.push(s.charAt(randnum(0,len)));
+        }
+        for(var j=0;j<len2;j++){
+            arr2.push(s.charAt(randnum(0,len)));
+        }
+        newS ={
+            preFix:arr1.join(''),
+            postFix:arr2.join('')
+        };
+        return newS;
+    }
 
+    function randnum(s,e){
+        var n = e - s;
+        return Math.floor(Math.random()*n+s);
+    }
 });

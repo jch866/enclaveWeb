@@ -131,10 +131,10 @@ $(function() {
             case mRecommendUl: //移动端文章详情页下面的随机三篇文章的Dom
                 mRecommendUl.html('');
                 $.each(data, function(index, item) {
-                    var str = '<li>' +
-                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
-                        '<div>' +
-                        '<h2>' + item.art_title + '</h2>' +
+                    var str = '<li><div class="imgWrap">' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a></div>' +
+                        '<div class="des">' +
+                        '<h3>' + item.art_title + '</h3>' +
                         '<p>' + item.art_description + '</p>' +
                         '</li>';
                     mRecommendUl.append($(str));
@@ -143,9 +143,9 @@ $(function() {
             case mArtList: //移动端首页列表
                 mArtList.html('');
                 $.each(data, function(index, item) {
-                    var str = '<li>' +
-                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a>' +
-                        '<div>' +
+                    var str = '<li><div class="imgWrap">' +
+                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a></div>' +
+                        '<div class="des">' +
                         '<h3>' + item.art_title + '</h3>' +
                         '<p>' + item.art_description + '</p>' +
                         '</div>' +

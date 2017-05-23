@@ -38,9 +38,9 @@ $(function() {
     var lsTime = util.supports_ls() ? (util.getls(cache.aLT) - 0) : false;
     var url = {
         al: 'https://app.enclavebooks.cn/v1_4/index', //article list
-        ad: 'http://app.enclavebooks.cn/v1_4/article?', //article detail
-        ar: 'http://app.enclavebooks.cn/v1_4/recommend' ,//article random  随机三篇
-        homepage: 'http://app.enclavebooks.cn' //article random  随机三篇
+        ad: 'https://app.enclavebooks.cn/v1_4/article?', //article detail
+        ar: 'https://app.enclavebooks.cn/v1_4/recommend' ,//article random  随机三篇
+        homepage: 'https://app.enclavebooks.cn' //article random  随机三篇
     };
     //首页slides变量
     var index = 0,
@@ -131,25 +131,25 @@ $(function() {
             case mRecommendUl: //移动端文章详情页下面的随机三篇文章的Dom
                 mRecommendUl.html('');
                 $.each(data, function(index, item) {
-                    var str = '<li><div class="imgWrap">' +
-                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a></div>' +
+                    var str = '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><li><div class="imgWrap">' +
+                        '<img src=' + item.art_thumb + ' alt=""></div>' +
                         '<div class="des">' +
                         '<h3>' + item.art_title + '</h3>' +
                         '<p>' + item.art_description + '</p>' +
-                        '</li>';
+                        '</li></a>';
                     mRecommendUl.append($(str));
                 })
                 break;
             case mArtList: //移动端首页列表
                 mArtList.html('');
                 $.each(data, function(index, item) {
-                    var str = '<li><div class="imgWrap">' +
-                        '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><img src=' + item.art_thumb + ' alt=""></a></div>' +
+                    var str = '<a href="article.html?art_id=' + randStr().preFix+item.art_id+randStr().postFix + '" ><li><div class="imgWrap">' +
+                        '<img src=' + item.art_thumb + ' alt=""></div>' +
                         '<div class="des">' +
                         '<h3>' + item.art_title + '</h3>' +
                         '<p>' + item.art_description + '</p>' +
                         '</div>' +
-                        '</li>';
+                        '</li></a>';
                     mArtList.append($(str));
                 })
                 break;
@@ -247,7 +247,12 @@ $(function() {
      */
     function scrollFixed() {
         doc.scroll(function() {
-            var headHeight = art_head.height();
+            $('.article_head').outerHeight();
+            var headHeight = art_head.outerHeight();
+            if($(document).height()<(doc.height()+headHeight)){
+                art_head.hasClass('fixedTop')&&art_head.removeClass('fixedTop');
+                return;
+            }
             if (doc.scrollTop() > headHeight) {
                 art_head.addClass('fixedTop')
             } else {

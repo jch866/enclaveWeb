@@ -58,6 +58,9 @@ animation:top15 2.5s ease  infinite;
 .m_recommend h3{font-size: 15px;color: #404146;letter-spacing: -0.24px;line-height: 20px;}
 .m_recommend ul{ height:auto;}
 
+
+.mContentWrap{background:#fafafa;}
+.menu,.aboutUs{background: #fff;}
 .menu{display: flex; justify-content: space-between;flex-wrap: wrap ; font-size: 14px;margin-top: 10px;
 height: 75px; }
 .menu a{color: #8B8687;width: 30%; line-height: 35px; text-align: center}

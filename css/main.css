@@ -165,6 +165,9 @@ display: flex;  align-items: flex-end;flex: 1;}
 .recommend ul li .summary div span{display: inline-block;margin-right: 12px; }
 
 
+.contentWrap{background:#fafafa;padding-top: 20px;padding-bottom: 16px;}
+.wrap760{ width: 760px; margin: 0 auto; }
+.menu,.aboutUs{background: #fff;padding: 0 30px;}
 .menu{font-size: 16px; display: flex;justify-content:space-around;line-height: 50px;height: 50px; }
 .menu a{color: #8B8687;}
 .menu a.curr{color: #404146;}

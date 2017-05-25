@@ -40,11 +40,13 @@ animation:top15 2.5s ease  infinite;
 .head .arrow span{display: inline-block;width: 10px;height:10px; border: 2px solid #fff; border-left: none;border-top: none;
  transform: rotate(45deg);margin-right: 8px;}
 .head .arrow:hover{cursor: pointer}
-
-.mdetail_head{display: flex;justify-content: space-between;padding: 11px 11px 0 11px;border-bottom: 1px solid #e6e6e6;}
+.fixedTop{position: fixed;top: 0;z-index: 999;background: #fff;width: 100%;}
+.mdetail_head{}
 .mdetail_head .art_logo{}
 .mdetail_head .downApp{width: 90px;height: 38px;text-align: center;line-height: 38px; border: 1px solid #404146;border-radius: 4px;font-size: 14px;color: #404146;}
-
+.head_wrap{
+    display: flex;justify-content: space-between;padding: 10px 10px 0;border-bottom: 1px solid #e6e6e6;
+}
 .m_artList,.m_recommend{padding: 0 16px;}
 .m_artList li,.m_recommend li{display: flex; margin-top:16px; }
 .m_artList li div.imgWrap,.m_recommend li div.imgWrap{width: 100px;height: 100px;overflow: hidden; }

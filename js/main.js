@@ -8,7 +8,9 @@ $(function() {
         mDetails = $(".m_details"),
         details = $('.article_detail'),
         art_head = $('.article_head'),
+        mart_head = $('.mdetail_head'),
         menu_tab = $('.menu_con'),
+        downApp = $('#downApp'),
         tab = $('.menu > a'),
         mWeChat = $('#m_weChat'),
         mask = $('#mask'),
@@ -245,23 +247,23 @@ $(function() {
      * [scrollFixed 绑定window滚动事件达到临界点head就fixed]
      * @return {[type]} [description]
      */
-    function scrollFixed() {
+    function scrollFixed($obj) {
         doc.scroll(function() {
-            $('.article_head').outerHeight();
-            var headHeight = art_head.outerHeight();
+            var headHeight = $obj.outerHeight();
             if($(document).height()<(doc.height()+headHeight)){
-                art_head.hasClass('fixedTop')&&art_head.removeClass('fixedTop');
+                $obj.hasClass('fixedTop')&&$obj.removeClass('fixedTop');
                 return;
             }
             if (doc.scrollTop() > headHeight) {
-                art_head.addClass('fixedTop')
+                $obj.addClass('fixedTop')
             } else {
-                art_head.removeClass('fixedTop')
+                $obj.removeClass('fixedTop')
             }
         })
     }
 
-    (art_head.length != 0) && scrollFixed();
+    (art_head.length != 0) && scrollFixed(art_head);
+    (mart_head.length != 0) && scrollFixed(mart_head);
     /**
      * [tabChange 关于我们，页面标题TAB]
      * @return {[type]} [description]
@@ -416,10 +418,10 @@ $(function() {
             callBack(event);
         });
     }
-    var mIndex = document.getElementById('header');
-    mIndex && tapEvt(mIndex,function() {
-        $('body,html').animate({ scrollTop: doc.height() }, 400)
-    });
+    // var mIndex = document.getElementById('header');
+    // mIndex && tapEvt(mIndex,function() {
+    //     $('body,html').animate({ scrollTop: doc.height() }, 400)
+    // });
 
     function randStr(){
         var s= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -443,4 +445,31 @@ $(function() {
         var n = e - s;
         return Math.floor(Math.random()*n+s);
     }
+
+    function devicePlatform(){
+        var device='';
+        var ua = navigator.userAgent.toLowerCase();
+        if (/iphone|ipad|ipod/.test(ua)) {
+            device = 'iOS';
+        } else if (/android/.test(ua)) {
+            device = 'Android';
+        } else {
+            device = 'Desktop';
+        }
+        return device;
+    }
+
+    function downLoad(){
+        var device = devicePlatform();
+        if(device == 'iOS'){
+            window.location.href='https://itunes.apple.com/us/app/fei-de/id1179249797?mt=8';
+        }else if(device = 'Android'){
+            window.location.href='https://apk.enclavebooks.cn/enclave.apk';
+        }else{
+            window.location.href='index.html';
+        }
+    }
+    downApp && downApp.on('click',function(e){
+        downLoad();
+    })
 });

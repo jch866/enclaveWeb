@@ -410,13 +410,17 @@ $(function() {
         });
         dom.addEventListener("touchend", function(event) {
             //如果发生了移动就不执行回调  
-            if (isMove) return;
+            //if (isMove) return;
             //如果大于延时时间就不执行回调函数  
             if (Date.now() - startTime > delayTime) return;
             callBack(event);
         });
     }
-    
+    var mIndex = document.getElementById('header');
+    mIndex && tapEvt(mIndex,function() {
+        $('body,html').animate({ scrollTop: doc.height() }, 400)
+    });
+
     function randStr(){
         var s= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var len = s.length;
